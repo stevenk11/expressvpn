@@ -3,7 +3,7 @@ FROM debian:buster-slim
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
-ARG APP=expressvpn_3.2.0.8-1_amd64.deb
+ARG APP=expressvpn_3.2.1.2-1_amd64.deb
 
 RUN sed -i -e "s/deb.debian/ftp.hk.debian/g" /etc/apt/sources.list \
 	&& apt-get update && apt-get install -y --no-install-recommends \
