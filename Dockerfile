@@ -12,7 +12,8 @@ RUN sed -i -e "s/deb.debian/ftp.hk.debian/g" /etc/apt/sources.list \
 	&& wget -q "https://download.expressvpn.xyz/clients/linux/${APP}" -O /tmp/${APP} \
 	&& dpkg -i /tmp/${APP} \
 	&& rm -rf /tmp/*.deb \
-	&& apt-get purge -y --autoremove wget
+	&& apt-get purge -y --autoremove wget \
+	&& sed -i -e "s/\"\$DAEMON_ARGS\"/\$DAEMON_ARGS/g" expressvpn
 
 COPY entrypoint.sh /tmp/entrypoint.sh
 COPY expressvpnActivate.sh /tmp/expressvpnActivate.sh
